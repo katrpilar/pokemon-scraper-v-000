@@ -1,14 +1,14 @@
 class Pokemon
   attr_accessor :id, :name, :type, :db, :hp
   
-  @@all = []
+  # @@all = []
   def initialize(name:, type:, db:, id:, hp: nil)
     @name = name
     @type = type
     @db = db
     @id = id
     @hp = hp
-    @@all << self
+    # @@all << self
   end
   
   def self.save(name, type, db)
@@ -22,9 +22,9 @@ class Pokemon
     #found = @@all.detect{|i| i.id = id}
   end
    
-  def self.all
-    @@all
-  end
+  # def self.all
+  #   @@all
+  # end
   
   def alter_hp(amt, db)
     db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", amt, self.id)
