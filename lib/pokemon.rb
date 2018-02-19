@@ -16,7 +16,7 @@ class Pokemon
   end
   
   def self.find(id, db)
-    vals = db.execute("SELECT pokemon.id, pokemon.name, pokemon.type FROM pokemon WHERE pokemon.id = ?", id).flatten
+    vals = db.execute("SELECT pokemon.id, pokemon.name, pokemon.type, pokemon.hp FROM pokemon WHERE pokemon.id = ?", id).flatten
     #binding.pry
     newpoke = self.new(id: vals[0], db: db, name: vals[1], type: vals[2], hp: vals[3])
     #found = @@all.detect{|i| i.id = id}
